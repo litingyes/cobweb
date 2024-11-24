@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "cobweb"
+version = "0.1.0"
+description = ""
+authors = ["liting <luz.liting@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+black = "^24.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
