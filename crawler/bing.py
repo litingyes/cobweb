@@ -8,7 +8,7 @@ MKTs = ["en-US", "zh-CN"]
 
 
 def pull_daily_wallpaper():
-    target_dir = path.join(get_database_path(), "bing", "daily-wallpaper", getToday())
+    target_dir = path.join(get_database_path(), "bing", "daily-wallpaper")
     md_content = "\n| United States (en-US) | China (zh-CN) |\n| :----: | :----: |\n"
 
     for mkt in MKTs:
@@ -17,7 +17,7 @@ def pull_daily_wallpaper():
             {"format": "js", "idx": 0, "n": 8, "mkt": mkt},
         )
         data = r.json()["images"]
-        target_file = path.join(target_dir, mkt + ".json")
+        target_file = path.join(target_dir, mkt, getToday() + ".json")
         ensure_path_exists(target_file)
         with open(target_file, "w") as f:
             f.write(dumps(data, ensure_ascii=False, indent=2))
@@ -34,7 +34,7 @@ def pull_daily_wallpaper():
 
 
 def pull_trending_images():
-    target_dir = path.join(get_database_path(), "bing", "trending-images", getToday())
+    target_dir = path.join(get_database_path(), "bing", "trending-images")
     key = environ.get("AZURE_SUBSCRIPTION_KEY")
     md_content = "\n| United States (en-US) | China (zh-CN) |\n| :----: | :----: |\n"
 
@@ -45,7 +45,7 @@ def pull_trending_images():
             params={"safeSearch": "Strict", "count": 8, "mkt": mkt},
         )
         data = r.json()["categories"]
-        target_file = path.join(target_dir, mkt + ".json")
+        target_file = path.join(target_dir, mkt, getToday() + ".json")
         ensure_path_exists(target_file)
         with open(target_file, "w") as f:
             f.write(dumps(data, ensure_ascii=False, indent=2))
