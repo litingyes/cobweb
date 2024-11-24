@@ -9,6 +9,8 @@ jobs:
   crawler:
     name: Crawler
     runs-on: ubuntu-latest
+    env:
+      AZURE_SUBSCRIPTION_KEY: ${{secrets.AZURE_SUBSCRIPTION_KEY}}
     steps:
       - uses: actions/checkout@v4
       - run: pipx install poetry
