@@ -1,8 +1,8 @@
 {
-  "name": "nextjs-app-template",
+  "name": "cobweb",
   "version": "0.1.0",
   "private": true,
-  "description": "A template for create nextjs app project",
+  "description": "Collect and store meaningful static information",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

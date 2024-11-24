@@ -3,8 +3,8 @@ import { NextUIProvider } from '@nextui-org/react'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'nextjs-app-template',
-  description: 'A template for create nextjs app project',
+  title: 'cobweb',
+  description: 'Collect and store meaningful static information',
 }
 
 export default function RootLayout({
