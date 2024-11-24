@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Footer from '@/components/Footer'
 import { NextUIProvider } from '@nextui-org/react'
 import './globals.css'
 
@@ -15,8 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextUIProvider>
-          {children}
+        <NextUIProvider className="h-screen w-screen font-sans">
+          <main className="min-h-full">
+            {children}
+          </main>
+          <Footer />
         </NextUIProvider>
       </body>
     </html>
