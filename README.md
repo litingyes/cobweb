@@ -1,17 +1,12 @@
-# nextjs-app-template
+# cobweb
 
-A template for create nextjs app project
+Store and regularly update static data
 
-## Dependencies
+## Database
 
-### UI
+- [Bing daily wallpaper](./database/bing/daily-wallpaper/)
+- [Bing trending images](./database/bing/trending-images/)
 
-- [tailwindcss](https://tailwindcss.com/)
-- [NextUI](https://nextui.org/)
+## Statement
 
-### Lint & Format
-
-- [eslint](https://eslint.org/)
-  - [@antfu/eslint-config](https://www.npmjs.com/package/@antfu/eslint-config)
-  - [@next/eslint-plugin-next](https://www.npmjs.com/package/@next/eslint-plugin-next)
-  - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss)
+This repository does not hold the copyright of any data. All data is subject to the copyright of the data source. If there is any infringement, please contact us to delete it.
