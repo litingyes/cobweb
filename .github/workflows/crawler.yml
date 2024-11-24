@@ -1,0 +1,27 @@
+name: Pull and commit data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  0 0 * * *
+
+jobs:
+  crawler:
+    name: Crawler
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx install poetry
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'poetry'
+      - run: poetry install
+      - run: poetry run python crawler
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "luz.liting@gmail.com"
+          git config --global user.name "litingyes"
+          git add .
+          git commit -m "chore: update data"
+          git push origin main
