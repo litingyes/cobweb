@@ -18,7 +18,7 @@ Store and regularly update static data
 
 ### Bing trending images
 
-> [Learn more data](./database/bing/trending-images/)
+> [View all data](./database/bing/trending-images/)
 
 <!-- BING_TRENDING_IMAGES_START -->
 
