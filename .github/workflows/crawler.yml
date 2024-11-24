@@ -25,5 +25,5 @@ jobs:
           git config --global user.email "luz.liting@gmail.com"
           git config --global user.name "litingyes"
           git add .
-          git commit -m "chore: update data"
+          git commit -m "chore(github-actions): update data"
           git push origin main
