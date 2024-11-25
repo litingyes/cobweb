@@ -3,7 +3,7 @@ name: Pull and commit data
 on:
   workflow_dispatch:
   schedule:
-    - cron:  0 0 * * *
+    - cron: 0 8 * * *
 
 jobs:
   crawler:
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'poetry'
+          cache: poetry
       - run: poetry install
       - run: poetry run python crawler
       - name: Commit and push changes
@@ -25,5 +25,5 @@ jobs:
           git config --global user.email "luz.liting@gmail.com"
           git config --global user.name "litingyes"
           git add .
-          git commit -m "chore(github-actions): update data"
+          git commit -m "chore(github-actions): update data at ${date}"
           git push origin main
