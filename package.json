@@ -4,7 +4,7 @@
   "private": true,
   "description": "Collect, store and distribute meaningful static data",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 6002",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
