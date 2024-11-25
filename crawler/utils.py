@@ -36,7 +36,7 @@ def update_readme(tag, content):
     )
 
     readme_path = path.join(getcwd(), "README.md")
-    with open(readme_path, "r+") as file:
+    with open(readme_path, "r") as file:
         readme_content = file.read()
-        file.seek(0)
-        file.write(pattern.sub(rf"{content}", readme_content))
+    with open(readme_path, "w") as file:
+        file.write(pattern.sub(content, readme_content, 1))
