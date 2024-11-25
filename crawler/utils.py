@@ -1,6 +1,6 @@
 from os import getcwd, path, makedirs
 from datetime import datetime, timezone
-from re import DOTALL, MULTILINE, compile, escape, findall
+from re import DOTALL, MULTILINE, compile, escape
 
 
 # file
