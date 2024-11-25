@@ -5,7 +5,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'cobweb',
-  description: 'Collect and store meaningful static information',
+  description: 'Collect, store and distribute meaningful static data',
 }
 
 export default function RootLayout({

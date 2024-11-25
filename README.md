@@ -1,6 +1,6 @@
 # cobweb
 
-Collect and store meaningful static information
+Collect, store and distribute meaningful static data
 
 ## Database
 

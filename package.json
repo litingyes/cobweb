@@ -2,7 +2,7 @@
   "name": "cobweb",
   "version": "0.1.0",
   "private": true,
-  "description": "Collect and store meaningful static information",
+  "description": "Collect, store and distribute meaningful static data",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
