@@ -43,7 +43,7 @@ export default function ImagesOverview() {
                     <div className="flex items-center truncate text-base font-semibold">{query.displayText}</div>
                     <div className="mt-2 flex items-center justify-between gap-2">
                       <Chip className="gap-0.5" color="secondary" size="sm" startContent={<i className="icon-[material-symbols-light--language] text-base" />}>{mkt}</Chip>
-                      <Link href={image.contentUrl} size="sm" color="primary" isBlock isExternal showAnchorIcon>Original image</Link>
+                      <Link href={image.contentUrl} size="sm" color="primary" isBlock isExternal showAnchorIcon>Origin</Link>
                     </div>
                   </CardFooter>
                 </Card>
