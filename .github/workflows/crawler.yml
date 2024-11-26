@@ -34,5 +34,5 @@ jobs:
           git config --global user.email "luz.liting@gmail.com"
           git config --global user.name "litingyes"
           git add .
-          git commit -m "chore(github-actions): update data at $(date +'%Y-%m-%d)"
+          git commit -m "chore(github-actions): update data at $(date +'%Y-%m-%d')"
           git push origin main
