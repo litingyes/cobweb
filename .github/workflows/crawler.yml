@@ -28,7 +28,6 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install
-      - run: pnpm lint-staged
       - name: Commit and push changes
         run: |
           git config --global user.email "luz.liting@gmail.com"
