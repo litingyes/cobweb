@@ -7,7 +7,7 @@ const db = connectDatabase()
 export default function ImagesOverview() {
   return (
     <div>
-      <div className="columns-1 gap-6 md:columns-2 xl:columns-3">
+      <div className="columns-1 gap-6 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5">
         {
           ...Object.entries(db.dailyWallpaper).map(([mkt, mktData]) => mktData.map(({ date, data }) => (
             <Fragment key={`dailyWallpaper_${mkt}_${date}`}>
