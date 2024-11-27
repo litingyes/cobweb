@@ -1,8 +1,6 @@
-import { BING_DOMAIN, connectDatabase } from '@/utils/database'
+import { BING_DOMAIN, db } from '@/utils/database'
 import { Card, CardBody, CardFooter, Chip, Image, Link } from '@nextui-org/react'
 import { Fragment } from 'react'
-
-const db = connectDatabase()
 
 export default function ImagesOverview() {
   return (
