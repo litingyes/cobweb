@@ -6,6 +6,7 @@ export default antfu(
   {
     formatters: true,
     react: true,
+    typescript: true,
     plugins: {
       next,
     },
