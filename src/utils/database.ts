@@ -60,3 +60,5 @@ export function connectDatabase() {
     },
   }
 }
+
+export const db = connectDatabase()

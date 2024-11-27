@@ -23,6 +23,9 @@ importers:
       next:
         specifier: 15.0.3
         version: 15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
+      random:
+        specifier: ^5.1.1
+        version: 5.1.1
       react:
         specifier: 19.0.0-rc-66855b96-20241106
         version: 19.0.0-rc-66855b96-20241106
@@ -90,6 +93,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.15
+      type-fest:
+        specifier: ^4.29.0
+        version: 4.29.0
       typescript:
         specifier: ^5
         version: 5.7.2
@@ -3524,6 +3530,10 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  random@5.1.1:
+    resolution: {integrity: sha512-iidvORUvXY1ItoYxO0eduHCKl22QV0G6460vRHe862dUagJKPhRyjUGwK8ioOCG4NRuFvExHFpqMngsnr2miwA==}
+    engines: {node: '>=18'}
+
   react-dom@19.0.0-rc-66855b96-20241106:
     resolution: {integrity: sha512-D25vdaytZ1wFIRiwNU98NPQ/upS2P8Co4/oNoa02PzHbh8deWdepjm5qwZM/46OdSiGv4WSWwxP55RO9obqJEQ==}
     peerDependencies:
@@ -3926,6 +3936,10 @@ packages:
   type-fest@0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+
+  type-fest@4.29.0:
+    resolution: {integrity: sha512-RPYt6dKyemXJe7I6oNstcH24myUGSReicxcHTvCLgzm4e0n8y05dGvcGB15/SoPRBmhlMthWQ9pvKyL81ko8nQ==}
+    engines: {node: '>=16'}
 
   typed-array-buffer@1.0.2:
     resolution: {integrity: sha512-gEymJYKZtKXzzBzM4jqa9w6Q1Jjm7x2d+sh19AdsD4wqnMPDYyvwpsIc2Q/835kHuo3BEQ7CjelGhfTsoBb2MQ==}
@@ -8850,6 +8864,8 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  random@5.1.1: {}
+
   react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106):
     dependencies:
       react: 19.0.0-rc-66855b96-20241106
@@ -9316,6 +9332,8 @@ snapshots:
   type-fest@0.6.0: {}
 
   type-fest@0.8.1: {}
+
+  type-fest@4.29.0: {}
 
   typed-array-buffer@1.0.2:
     dependencies:

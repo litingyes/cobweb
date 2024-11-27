@@ -17,6 +17,7 @@
     "@vercel/speed-insights": "^1.1.0",
     "framer-motion": "^11.11.17",
     "next": "15.0.3",
+    "random": "^5.1.1",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
   },
@@ -41,6 +42,7 @@
     "lint-staged": "^15.2.10",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "type-fest": "^4.29.0",
     "typescript": "^5"
   },
   "lint-staged": {
