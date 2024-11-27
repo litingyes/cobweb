@@ -1,6 +1,5 @@
-import { Button } from '@nextui-org/react'
+import { Link } from '@nextui-org/react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Header() {
   return (
@@ -11,16 +10,13 @@ export default function Header() {
           <div className="text-3xl font-bold">cobweb</div>
         </div>
       </Link>
-      <div className="flex items-center gap-2">
-        <Link href="/images">
-          <Button className="text-xl" variant="light" size="sm">
-            Images
-          </Button>
+      <div className="flex items-center gap-1">
+        <Link href="/images" isBlock>
+          Images
         </Link>
-        <Link href="https://github.com/litingyes/cobweb" target="_blank">
-          <Button className="text-xl" variant="light" size="sm" isIconOnly>
-            <i className="icon-[mdi--github]" />
-          </Button>
+        <Link href="https://api.cobweb.litingyes.top/" isExternal isBlock showAnchorIcon>API document</Link>
+        <Link className="size-8" href="https://github.com/litingyes/cobweb" isExternal isBlock>
+          <i className="icon-[mdi--github]  text-2xl" />
         </Link>
       </div>
     </header>

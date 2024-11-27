@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
-import { NextUIProvider } from '@nextui-org/react'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Providers } from './providers'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -18,12 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextUIProvider className="h-screen w-screen font-sans">
+        <Providers className="h-screen w-screen font-sans">
           <main className="min-h-full">
             {children}
           </main>
           <Footer />
-        </NextUIProvider>
+        </Providers>
         <Analytics />
         <SpeedInsights />
       </body>
