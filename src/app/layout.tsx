@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Providers } from './providers'
 import './globals.css'
+import 'react-photo-view/dist/react-photo-view.css'
 
 export const metadata: Metadata = {
   title: 'cobweb',

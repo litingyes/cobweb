@@ -19,7 +19,8 @@
     "next": "15.0.3",
     "random": "^5.1.1",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-photo-view": "^1.2.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
