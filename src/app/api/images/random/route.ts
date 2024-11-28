@@ -1,7 +1,7 @@
-import type { NextRequest } from 'next/server'
 import type { ValueOf } from 'type-fest'
 import { createResponseJSON } from '@/utils/api'
 import { BING_DOMAIN, db } from '@/utils/database'
+import { type NextRequest, NextResponse } from 'next/server'
 import random from 'random'
 
 const TYPES = {
@@ -18,6 +18,11 @@ const LANGS: {
   ZH_CN: 'zh-CN',
 }
 
+enum MODE {
+  DATA = 'data',
+  IMAGE = 'image',
+}
+
 export function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
 
@@ -29,6 +34,11 @@ export function GET(request: NextRequest) {
   let lang = (searchParams.get('lang') ?? LANGS.EN_US) as ValueOf<typeof LANGS>
   if (!Object.values(LANGS).includes(lang)) {
     lang = LANGS.EN_US
+  }
+
+  let mode = (searchParams.get('mode') ?? MODE.DATA) as ValueOf<typeof MODE>
+  if (!Object.values(MODE).includes(mode)) {
+    mode = MODE.DATA
   }
 
   const imagesMap = new Map<string, string>()
@@ -51,6 +61,10 @@ export function GET(request: NextRequest) {
 
   const urls = Array.from(imagesMap, ([url, alt]) => ({ url, alt }))
   const index = random.integer(0, urls.length - 1)
+
+  if (mode === MODE.IMAGE) {
+    return NextResponse.redirect(urls[index].url, 307)
+  }
 
   return createResponseJSON(urls[index])
 }
