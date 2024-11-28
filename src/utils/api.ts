@@ -5,7 +5,7 @@ export function createResponseJSON(data: JsonValue | null, error?: {
   statusMessage: string
 }) {
   if (error) {
-    return Response.json(error, error)
+    return Response.json({ error }, error)
   }
 
   return Response.json({
