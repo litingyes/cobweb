@@ -4,6 +4,9 @@ Collect, store and distribute meaningful static data
 
 ## Database
 
+> [!TIP]
+> We have released a public API interface to make it easier to obtain data and integrate it into your products. [Learn more](https://api.cobweb.litingyes.top/)
+
 ### Bing daily wallpaper
 
 > [View all data](./database/bing/daily-wallpaper/)
