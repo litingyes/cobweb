@@ -12,9 +12,11 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@date-fns/utc": "^2.1.0",
     "@nextui-org/react": "^2.4.8",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
+    "date-fns": "^4.1.0",
     "framer-motion": "^11.11.17",
     "next": "15.0.3",
     "random": "^5.1.1",

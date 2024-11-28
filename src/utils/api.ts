@@ -1,11 +1,14 @@
 import type { JsonValue } from 'type-fest'
 
 export function createResponseJSON(data: JsonValue | null, error?: {
-  code: number
-  message: string
+  status: number
+  statusMessage: string
 }) {
+  if (error) {
+    return Response.json(error, error)
+  }
+
   return Response.json({
     data,
-    error,
   })
 }
