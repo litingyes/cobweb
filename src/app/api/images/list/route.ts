@@ -34,15 +34,7 @@ export function GET(request: NextRequest) {
   const date = searchParams.get('date') ?? format(subDays(getUTCToday(), 1), FORMAT_DATE_FOR_IMAGE)
 
   if (type === TYPES.TRENDING_IMAGES) {
-    const item = db.trendingImages[lang].find(item => item.date === date)
-    if (!item) {
-      return createResponseJSON(null, {
-        status: 404,
-        statusMessage: `The date parameter is invalid. The current valid range is 2024-11-24 to ${format(subDays(getUTCToday(), 1), FORMAT_DATE_FOR_IMAGE)}`,
-      })
-    }
-
-    return createResponseJSON(item)
+    return createResponseJSON(db.trendingImages[lang])
   }
 
   const item = db.dailyWallpaper[lang].find((item) => {

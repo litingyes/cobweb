@@ -59,7 +59,6 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
                 })
               }
             </>
-
           )
         }
         {
@@ -73,11 +72,11 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
                     return []
                   }
 
-                  return mktData.map(({ date, data }) => (
-                    <Fragment key={`trendingImages_${mkt}_${date}`}>
-                      {data.map(item => item.tiles.map(({ image, query }) => (
+                  return (
+                    <Fragment key={`trending-images__${mkt}`}>
+                      {mktData.map(item => item.tiles.map(({ image, query }) => (
                         <ImageCardWithPreview
-                          key={mkt + date + image.thumbnailUrl}
+                          key={mkt + image.thumbnailUrl}
                           url={image.thumbnailUrl}
                           alt={query.displayText}
                           width={image.thumbnail.width}
@@ -89,7 +88,7 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
                         />
                       ))).flat(2)}
                     </Fragment>
-                  ))
+                  )
                 })
               }
             </>

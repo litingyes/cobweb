@@ -50,11 +50,9 @@ export function GET(request: NextRequest) {
     })
   }
   if ([TYPES.ALL, TYPES.TRENDING_IMAGES].includes(type)) {
-    db.trendingImages[lang].forEach((bucket) => {
-      bucket.data.forEach((item) => {
-        item.tiles.forEach((image) => {
-          imagesMap.set(image.image.contentUrl, image.query.displayText)
-        })
+    db.trendingImages[lang].forEach((data) => {
+      data.tiles.forEach((image) => {
+        imagesMap.set(image.image.contentUrl, image.query.displayText)
       })
     })
   }

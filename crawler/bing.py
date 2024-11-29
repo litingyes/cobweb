@@ -46,7 +46,7 @@ def pull_trending_images():
             params={"safeSearch": "Strict", "count": 8, "mkt": mkt},
         )
         data = r.json()["categories"]
-        target_file = path.join(target_dir, mkt, getToday() + ".json")
+        target_file = path.join(target_dir, mkt + ".json")
         ensure_path_exists(target_file)
         with open(target_file, "w") as f:
             f.write(dumps(data, ensure_ascii=False, indent=2))

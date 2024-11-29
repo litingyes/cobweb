@@ -50,14 +50,8 @@ export function connectDatabase() {
       })),
     },
     trendingImages: {
-      'en-US': globSync(`${databaseDir}/bing/trending-images/en-US/*.json`).map(path => ({
-        date: basename(path, '.json'),
-        data: destr<TRENDING_IMAGES_ITEM[]>(readFileSync(path, 'utf-8')),
-      })),
-      'zh-CN': globSync(`${databaseDir}/bing/trending-images/zh-CN/*.json`).map(path => ({
-        date: basename(path, '.json'),
-        data: destr<TRENDING_IMAGES_ITEM[]>(readFileSync(path, 'utf-8')),
-      })),
+      'en-US': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/bing/trending-images/en-US.json`, 'utf-8')),
+      'zh-CN': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/bing/trending-images/zh-CN.json`, 'utf-8')),
     },
   }
 }
