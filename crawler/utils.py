@@ -2,7 +2,6 @@ from os import getcwd, path, makedirs
 from datetime import datetime, timezone
 from re import DOTALL, MULTILINE, compile, escape
 
-
 # file
 def get_database_path():
     return path.join(getcwd(), "database")
@@ -40,3 +39,9 @@ def update_readme(tag, content):
         readme_content = file.read()
     with open(readme_path, "w") as file:
         file.write(pattern.sub(content, readme_content, 1))
+
+# bing
+
+BING_DOMAIN = "https://bing.com"
+
+MKTs = ["en-US", "zh-CN"]

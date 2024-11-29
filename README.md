@@ -17,6 +17,16 @@ Collect, store and distribute meaningful static data
 
 <!-- BING_DAILY_WALLPAPER_END -->
 
+### Bing search wallpaper
+
+> [View all data](./database/bing/search-wallpaper/)
+
+<!-- BING_SEARCH_WALLPAPER_START -->
+
+![Floral Bathroom](https://tse1.mm.bing.net/th?q=Floral+Bathroom+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1) Today: [Floral Bathroom](https://tse1.mm.bing.net/th?q=Floral+Bathroom+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1)
+
+<!-- BING_SEARCH_WALLPAPER_END -->
+
 ### Bing trending images
 
 > [View all data](./database/bing/trending-images/)
