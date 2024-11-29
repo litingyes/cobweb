@@ -13,7 +13,7 @@ Collect, store and distribute meaningful static data
 
 <!-- BING_DAILY_WALLPAPER_START -->
 
-![Stuffed with gratitude](https://bing.com/th?id=OHR.TomTurkeys_EN-US6212893518_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp) Today: [Stuffed with gratitude](https://bing.com/th?id=OHR.TomTurkeys_EN-US6212893518_UHD.jpg)
+![An island of time and tide](https://bing.com/th?id=OHR.MtStMichel_EN-US6641012356_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp) Today: [An island of time and tide](https://bing.com/th?id=OHR.MtStMichel_EN-US6641012356_UHD.jpg)
 
 <!-- BING_DAILY_WALLPAPER_END -->
 
