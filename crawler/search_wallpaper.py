@@ -18,6 +18,7 @@ def pull_search_wallpaper():
             "safeSearch": "Strict",
             "color": "ColorOnly",
             "freshness": "Day",
+            "aspect": "Wide",
             "imageType": "Photo",
             "license": "Public",
             "size": "Wallpaper",
