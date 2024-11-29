@@ -1,7 +1,14 @@
 from json import dumps
 from os import path
 from requests import get
-from utils import ensure_path_exists, get_database_path, getToday, update_readme,MKTs,BING_DOMAIN
+from shared import (
+    ensure_path_exists,
+    get_database_path,
+    getToday,
+    update_readme,
+    MKTs,
+    BING_DOMAIN,
+)
 
 
 def pull_daily_wallpaper():
@@ -25,6 +32,7 @@ def pull_daily_wallpaper():
         if mkt == "en-US":
             md_content = f"![{first_image['title']}]({url}) Today: [{first_image['title']}]({uhd_url})"
             update_readme("BING_DAILY_WALLPAPER", md_content)
-            
+
+
 if __name__ == "__main__":
     pull_daily_wallpaper()

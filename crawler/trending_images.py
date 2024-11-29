@@ -1,7 +1,7 @@
 from json import dumps
 from os import environ, path
 from requests import get
-from utils import ensure_path_exists, update_readme,get_database_path,MKTs
+from shared import ensure_path_exists, update_readme, get_database_path, MKTs
 
 
 def pull_trending_images():
@@ -35,6 +35,7 @@ def pull_trending_images():
                 wallpaper_url = wallpaper["image"]["thumbnailUrl"]
                 md_content += f"| [![{nature_or_landmark_description}]({nature_or_landmark_url}) {nature_or_landmark_description}]({nature_or_landmark_url}) | [![{wallpaper_description}]({wallpaper_url}) {wallpaper_description}]({wallpaper_url}) |\n"
             update_readme("BING_TRENDING_IMAGES", md_content)
-            
+
+
 if __name__ == "__main__":
     pull_trending_images()
