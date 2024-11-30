@@ -13,7 +13,7 @@ Collect, store and distribute meaningful static data
 
 <!-- BING_DAILY_WALLPAPER_START -->
 
-![An island of time and tide](https://bing.com/th?id=OHR.MtStMichel_EN-US6641012356_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp) Today: [An island of time and tide](https://bing.com/th?id=OHR.MtStMichel_EN-US6641012356_UHD.jpg)
+![Reflecting Scotland's heritage](https://bing.com/th?id=OHR.KilchurnAutumn_EN-US6737063910_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp) Today: [Reflecting Scotland's heritage](https://bing.com/th?id=OHR.KilchurnAutumn_EN-US6737063910_UHD.jpg)
 
 <!-- BING_DAILY_WALLPAPER_END -->
 
@@ -23,7 +23,7 @@ Collect, store and distribute meaningful static data
 
 <!-- BING_SEARCH_WALLPAPER_START -->
 
-![Shin Chan](https://tse1.mm.bing.net/th?q=Shin+Chan+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1) Today: [Shin Chan](https://tse1.mm.bing.net/th?q=Shin+Chan+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1)
+![Floral Bathroom](https://tse1.mm.bing.net/th?q=Floral+Bathroom+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1) Today: [Floral Bathroom](https://tse1.mm.bing.net/th?q=Floral+Bathroom+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1)
 
 <!-- BING_SEARCH_WALLPAPER_END -->
 
