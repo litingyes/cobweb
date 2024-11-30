@@ -16,6 +16,13 @@ interface DAILY_WALLPAPER_ITEM extends JsonObject {
   quiz: string
 }
 
+interface SEARCH_WALLPAPER_ITEM extends JsonObject {
+  displayText: string
+  thumbnail: {
+    thumbnailUrl: string
+  }
+}
+
 interface TRENDING_IMAGES_ITEM extends JsonObject {
   title: string
   tiles: Array<{
@@ -49,6 +56,10 @@ export function connectDatabase() {
         data: destr<DAILY_WALLPAPER_ITEM[]>(readFileSync(path, 'utf-8')),
       })),
     },
+    searchWallpaper: globSync(`${databaseDir}/bing/search-wallpaper/*.json`).map(path => ({
+      date: basename(path, '.json'),
+      data: destr<SEARCH_WALLPAPER_ITEM[]>(readFileSync(path, 'utf-8')),
+    })),
     trendingImages: {
       'en-US': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/bing/trending-images/en-US.json`, 'utf-8')),
       'zh-CN': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/bing/trending-images/zh-CN.json`, 'utf-8')),

@@ -8,6 +8,9 @@ interface ImagesOverviewProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
+const LANGS = ['en-US', 'zh-CN']
+const MODULES = ['daily-wallpaper', 'trending-images']
+
 export default async function ImagesOverview({ searchParams }: ImagesOverviewProps) {
   const query = await searchParams
   let tags: string[] = []
@@ -26,13 +29,13 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
       <Divider className="mb-6 mt-4" />
       <div className="columns-1 gap-6 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5">
         {
-          (!tags.length || tags.includes('daily-wallpaper'))
+          (!tags.find(tag => MODULES.includes(tag)) || tags.includes(MODULES[0]))
           && (
             // eslint-disable-next-line react/no-useless-fragment
             <>
               {
                 ...Object.entries(db.dailyWallpaper).map(([mkt, mktData]) => {
-                  if (tags.length && !tags.includes(mkt)) {
+                  if (tags.find(tag => LANGS.includes(tag)) && !tags.includes(mkt)) {
                     return []
                   }
 
@@ -62,13 +65,13 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
           )
         }
         {
-          (!tags.length || tags.includes('trending-images'))
+          (!tags.find(tag => MODULES.includes(tag)) || tags.includes(MODULES[1]))
           && (
             // eslint-disable-next-line react/no-useless-fragment
             <>
               {
                 ...Object.entries(db.trendingImages).map(([mkt, mktData]) => {
-                  if (tags.length && !tags.includes(mkt)) {
+                  if (tags.find(tag => LANGS.includes(tag)) && !tags.includes(mkt)) {
                     return []
                   }
 
