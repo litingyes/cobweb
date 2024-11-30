@@ -23,6 +23,7 @@ export default function ImagesOverviewFilter() {
       <ChipCheckbox value="en-US" variant="light">en-US</ChipCheckbox>
       <ChipCheckbox value="zh-CN" variant="light">zh-CN</ChipCheckbox>
       <ChipCheckbox value="daily-wallpaper" variant="light">Daily wallpaper</ChipCheckbox>
+      <ChipCheckbox value="search-wallpaper" variant="light">Search wallpaper</ChipCheckbox>
       <ChipCheckbox value="trending-images" variant="light">Trending images</ChipCheckbox>
     </CheckboxGroup>
   )

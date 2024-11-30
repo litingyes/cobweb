@@ -9,7 +9,7 @@ interface ImagesOverviewProps {
 }
 
 const LANGS = ['en-US', 'zh-CN']
-const MODULES = ['daily-wallpaper', 'trending-images']
+const MODULES = ['daily-wallpaper', 'search-wallpaper', 'trending-images']
 
 export default async function ImagesOverview({ searchParams }: ImagesOverviewProps) {
   const query = await searchParams
@@ -66,6 +66,32 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
         }
         {
           (!tags.find(tag => MODULES.includes(tag)) || tags.includes(MODULES[1]))
+          && (
+            // eslint-disable-next-line react/no-useless-fragment
+            <>
+              {
+                ...db.searchWallpaper.map(({ date, data }) => {
+                  if (tags.find(tag => LANGS.includes(tag)) && !tags.includes('en-US')) {
+                    return []
+                  }
+
+                  return data.map(item => (
+                    <ImageCardWithPreview
+                      key={date + item.thumbnail.thumbnailUrl}
+                      url={item.thumbnail.thumbnailUrl}
+                      alt={item.displayText}
+                      width={960}
+                      height={540}
+                      lang="en-US"
+                    />
+                  ))
+                })
+              }
+            </>
+          )
+        }
+        {
+          (!tags.find(tag => MODULES.includes(tag)) || tags.includes(MODULES[2]))
           && (
             // eslint-disable-next-line react/no-useless-fragment
             <>
