@@ -39,24 +39,33 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
                     return []
                   }
 
+                  const bucket = new Set()
+
                   return mktData.map(({ date, data }) => (
                     <Fragment key={`dailyWallpaper_${mkt}_${date}`}>
-                      {data.map(item => (
-                        <ImageCardWithPreview
-                          key={item.urlbase}
-                          url={BING_DOMAIN + item.url}
-                          alt={item.title}
-                          width={960}
-                          height={540}
-                          lang={mkt}
-                          actions={(
-                            <div className="flex items-center">
-                              <Link href={`${BING_DOMAIN}${item.urlbase}_UHD.jpg`} size="sm" color="primary" isBlock isExternal showAnchorIcon>4K</Link>
-                              <Link href={item.copyrightlink} size="sm" color="warning" isBlock isExternal showAnchorIcon>Copyright</Link>
-                            </div>
-                          )}
-                        />
-                      ))}
+                      {data.map((item) => {
+                        if (bucket.has(item.urlbase)) {
+                          return null
+                        }
+                        bucket.add(item.urlbase)
+
+                        return (
+                          <ImageCardWithPreview
+                            key={item.urlbase}
+                            url={BING_DOMAIN + item.url}
+                            alt={item.title}
+                            width={960}
+                            height={540}
+                            lang={mkt}
+                            actions={(
+                              <div className="flex items-center">
+                                <Link href={`${BING_DOMAIN}${item.urlbase}_UHD.jpg`} size="sm" color="primary" isBlock isExternal showAnchorIcon>4K</Link>
+                                <Link href={item.copyrightlink} size="sm" color="warning" isBlock isExternal showAnchorIcon>Copyright</Link>
+                              </div>
+                            )}
+                          />
+                        )
+                      }).filter(Boolean)}
                     </Fragment>
                   ))
                 })
@@ -75,16 +84,18 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
                     return []
                   }
 
-                  return data.map(item => (
-                    <ImageCardWithPreview
-                      key={date + item.thumbnail.thumbnailUrl}
-                      url={item.thumbnail.thumbnailUrl}
-                      alt={item.displayText}
-                      width={960}
-                      height={540}
-                      lang="en-US"
-                    />
-                  ))
+                  return data.map((item) => {
+                    return (
+                      <ImageCardWithPreview
+                        key={date + item.thumbnail.thumbnailUrl}
+                        url={item.thumbnail.thumbnailUrl}
+                        alt={item.displayText}
+                        width={960}
+                        height={540}
+                        lang="en-US"
+                      />
+                    )
+                  })
                 })
               }
             </>
