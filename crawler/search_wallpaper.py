@@ -1,6 +1,7 @@
 from json import dumps
 from os import environ, path
 from requests import get
+from algolia import TAGS, TYPES, add_records
 from shared import ensure_path_exists, get_database_path, getToday, update_readme
 
 
@@ -33,6 +34,17 @@ def pull_search_wallpaper():
     first_image = data[0]
     md_content = f"![{first_image['displayText']}]({first_image['thumbnail']['thumbnailUrl']}) Today: [{first_image['displayText']}]({first_image['thumbnail']['thumbnailUrl']})"
     update_readme("BING_SEARCH_WALLPAPER", md_content)
+    
+    records = []
+    for item in data:
+        record = {
+            "type": TYPES.IMAGE.value,
+            "url": item["thumbnail"]["thumbnailUrl"],
+            "alt": item["displayText"],
+            "tags": [TAGS.IMAGE.value, TAGS.EN_US.value, TAGS.SEARCH_WALLPAPER.value],
+        }
+        records.append(record)
+    add_records(records)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 from json import dumps
 from os import path
 from requests import get
+from algolia import TAGS, TYPES, add_records
 from shared import (
     ensure_path_exists,
     get_database_path,
@@ -13,6 +14,7 @@ from shared import (
 
 def pull_daily_wallpaper():
     target_dir = path.join(get_database_path(), "bing", "daily-wallpaper")
+    records = []
 
     for mkt in MKTs:
         r = get(
@@ -32,6 +34,16 @@ def pull_daily_wallpaper():
         if mkt == "en-US":
             md_content = f"![{first_image['title']}]({url}) Today: [{first_image['title']}]({uhd_url})"
             update_readme("BING_DAILY_WALLPAPER", md_content)
+            
+        for item in data:
+            record = {
+                "type": TYPES.IMAGE.value,
+                "url": BING_DOMAIN + item["url"],
+                "alt": item["title"],
+                "tags": [TAGS.IMAGE.value, mkt, TAGS.DAILY_WALLPAPER.value],
+            }
+            records.append(record)
+        add_records(records)
 
 
 if __name__ == "__main__":

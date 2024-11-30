@@ -1,6 +1,7 @@
 from json import dumps
 from os import environ, path
 from requests import get
+from algolia import TAGS, TYPES, add_records
 from shared import ensure_path_exists, update_readme, get_database_path, MKTs
 
 
@@ -35,6 +36,22 @@ def pull_trending_images():
                 wallpaper_url = wallpaper["image"]["thumbnailUrl"]
                 md_content += f"| [![{nature_or_landmark_description}]({nature_or_landmark_url}) {nature_or_landmark_description}]({nature_or_landmark_url}) | [![{wallpaper_description}]({wallpaper_url}) {wallpaper_description}]({wallpaper_url}) |\n"
             update_readme("BING_TRENDING_IMAGES", md_content)
+        
+        records = []
+        for group in data:
+            for item in group["tiles"]:
+                record = {
+                    "type": TYPES.IMAGE.value,
+                    "url": item["image"]["contentUrl"],
+                    "alt": item["query"]["displayText"],
+                    "tags": [
+                        TAGS.IMAGE.value,
+                        mkt,
+                        TAGS.SEARCH_WALLPAPER.value,
+                    ],
+                }
+                records.append(record)
+        add_records(records)
 
 
 if __name__ == "__main__":

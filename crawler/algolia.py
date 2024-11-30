@@ -10,7 +10,6 @@ INDEX_NAME = "website"
 
 application_key = environ.get("ALGOLIA_APPLICATION_ID")
 api_key = environ.get("ALGOLIA_WRITE_API_KEY")
-client = SearchClientSync(application_key, api_key)
 
 
 class TYPES(Enum):
@@ -38,9 +37,17 @@ class TAGS(Enum):
 def wrap_add_object(record):
     return {"action": "addObject", "body": record}
 
+def add_records(records):
+    client = SearchClientSync(application_key, api_key)
+    client.batch(INDEX_NAME, {"requests": list(map(wrap_add_object, records))})
+    client.close()
+    
+
 
 def reset_records():
+    client = SearchClientSync(application_key, api_key)
     client.clear_objects(INDEX_NAME)
+    client.close()
 
     database_path = get_database_path()
     records = []
@@ -90,9 +97,9 @@ def reset_records():
                     }
                     records.append(record)
 
-    client.batch(INDEX_NAME, {"requests": list(map(wrap_add_object, records))})
-    client.close()
-
+    add_records(records)
+    
 
 if __name__ == "__main__":
     reset_records()
+    
