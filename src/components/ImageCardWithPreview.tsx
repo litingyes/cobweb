@@ -1,5 +1,6 @@
 'use client'
 import { Card, CardBody, CardFooter, Chip, Image } from '@nextui-org/react'
+import { motion } from 'motion/react'
 import { PhotoView } from 'react-photo-view'
 
 interface ImageCardWithPreviewProps {
@@ -14,7 +15,15 @@ interface ImageCardWithPreviewProps {
 export default function ImageCardWithPreview({ url, alt, width, height, lang, actions }: ImageCardWithPreviewProps) {
   return (
     <PhotoView src={url}>
-      <Card className="mb-6 w-full" shadow="sm" isPressable isFooterBlurred>
+      <Card
+        as={motion.div}
+        className="mb-6 w-full"
+        shadow="sm"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        isPressable
+        isFooterBlurred
+      >
         <CardBody className="relative p-0" style={{ paddingTop: `${height / width * 100}%` }}>
           <Image classNames={{ wrapper: 'absolute inset-0 size-full' }} className="!size-full" src={url} width={width} height={height} alt={alt} />
         </CardBody>
