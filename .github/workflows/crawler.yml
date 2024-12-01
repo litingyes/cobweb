@@ -4,10 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: 0 8 * * *
+    - cron: 0 0 1 * *
 
 jobs:
-  crawler:
-    name: Crawler
+  images:
+    name: update-images
     runs-on: ubuntu-latest
     env:
       AZURE_SUBSCRIPTION_KEY: ${{secrets.AZURE_SUBSCRIPTION_KEY}}
@@ -37,5 +38,32 @@ jobs:
           git config --global user.email "luz.liting@gmail.com"
           git config --global user.name "litingyes"
           git add .
-          git commit -m "chore(github-actions): update data at $(date +'%Y-%m-%d')"
+          git commit -m "chore(github-actions): update images at $(date +'%Y-%m-%d')"
+          git push origin main
+  emojis:
+    name: update-emojis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx install poetry
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: poetry
+      - run: poetry install
+      - run: poetry run python crawler/emoji.py
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "luz.liting@gmail.com"
+          git config --global user.name "litingyes"
+          git add .
+          git commit -m "chore(github-actions): update emojis at $(date +'%Y-%m-%d')"
           git push origin main

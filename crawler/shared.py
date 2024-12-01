@@ -1,7 +1,18 @@
 from os import getcwd, path, makedirs
 from datetime import datetime, timezone
 from re import DOTALL, MULTILINE, compile, escape
+from typing import List
 
+# utils
+def is_equal_list(arr1:List, arr2:List):
+    if (not arr1 or not arr2):
+        return False
+    if len(arr1) != len(arr2):
+        return False
+    for item in arr1:
+        if item not in arr2:
+            return False
+    return True
 
 # file
 def get_database_path():
