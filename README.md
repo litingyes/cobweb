@@ -13,7 +13,7 @@ Collect, store and distribute meaningful static data
 
 <!-- BING_DAILY_WALLPAPER_START -->
 
-![Reflecting Scotland's heritage](https://bing.com/th?id=OHR.KilchurnAutumn_EN-US6737063910_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp) Today: [Reflecting Scotland's heritage](https://bing.com/th?id=OHR.KilchurnAutumn_EN-US6737063910_UHD.jpg)
+![Protecting the last great wilderness](https://bing.com/th?id=OHR.IcebergsAntarctica_EN-US6829804691_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp) Today: [Protecting the last great wilderness](https://bing.com/th?id=OHR.IcebergsAntarctica_EN-US6829804691_UHD.jpg)
 
 <!-- BING_DAILY_WALLPAPER_END -->
 
