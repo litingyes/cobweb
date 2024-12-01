@@ -4,7 +4,7 @@ from os import path
 from re import split
 from typing import Dict, List
 from requests import get
-from algolia import TYPES, add_records
+from algolia import TAGS, TYPES, add_records
 from shared import ensure_path_exists, get_database_path, is_equal_list
 
 
@@ -57,6 +57,12 @@ def pull_unicode_emoji():
     records = []
     for item in list:
         item['objectID'] = f"{TYPES.EMOJI.value}_{item['name']}"
+        item['type'] = TAGS.EMOJI.value
+        item['tags'] = [TAGS.EMOJI.value]
+        if TAGS.GITHUB in item['categories']:
+            item['tags'].append(TAGS.GITHUB.value)
+        else:
+            item['tags'].append(TAGS.UNICODE.value)
         records.append(item)
     add_records(records)
 

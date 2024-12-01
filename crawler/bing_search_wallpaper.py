@@ -39,6 +39,7 @@ def pull_bing_search_wallpaper():
     records = []
     for item in data:
         record = {
+            "objectID": item["thumbnail"]["thumbnailUrl"],
             "type": TYPES.IMAGE.value,
             "url": item["thumbnail"]["thumbnailUrl"],
             "alt": item["displayText"],

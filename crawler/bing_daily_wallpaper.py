@@ -37,6 +37,7 @@ def pull_bing_daily_wallpaper():
             
         for item in data:
             record = {
+                "objectID": item['urlbase'],
                 "type": TYPES.IMAGE.value,
                 "url": BING_DOMAIN + item["url"],
                 "alt": item["title"],

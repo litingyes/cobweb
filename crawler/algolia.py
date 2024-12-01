@@ -25,14 +25,20 @@ class LANGS(Enum):
 class TAGS(Enum):
     # type
     IMAGE = "image"
+    EMOJI = "emoji"
 
     # langs
     EN_US = "en-US"
     ZN_CN = "zh-CN"
 
     # module
+    # image
     DAILY_WALLPAPER = "daily-wallpaper"
     SEARCH_WALLPAPER = "search-wallpaper"
+    # emoji
+    UNICODE = 'unicode'
+    GITHUB = 'github'
+    
 
 
 def wrap_add_object(record):
@@ -60,6 +66,7 @@ def reset_records():
                 data = loads(f.read())
                 for item in data:
                     record = {
+                        "objectID": item['urlbase'],
                         "type": TYPES.IMAGE.value,
                         "url": BING_DOMAIN + item["url"],
                         "alt": item["title"],
@@ -73,6 +80,7 @@ def reset_records():
             data = loads(f.read())
             for item in data:
                 record = {
+                    "objectID": item["thumbnail"]["thumbnailUrl"],
                     "type": TYPES.IMAGE.value,
                     "url": item["thumbnail"]["thumbnailUrl"],
                     "alt": item["displayText"],
@@ -87,6 +95,7 @@ def reset_records():
             for group in data:
                 for item in group["tiles"]:
                     record = {
+                        "objectID": item["image"]["contentUrl"],
                         "type": TYPES.IMAGE.value,
                         "url": item["image"]["contentUrl"],
                         "alt": item["query"]["displayText"],
@@ -99,11 +108,17 @@ def reset_records():
                     records.append(record)
 
     emojis_dir = path.join(database_path, "emojis")
-    for path in Path(emojis_dir).rglob('*.json'):
-        with open(path,'r') as f:
+    for file in Path(emojis_dir).rglob('*.json'):
+        with open(file,'r') as f:
             data = loads(f.read())
             for item in data:
                 item['objectID'] = f"{TYPES.EMOJI.value}_{item['name']}"
+                item['type'] = TAGS.EMOJI.value
+                item['tags'] = [TAGS.EMOJI.value]
+                if TAGS.GITHUB in item['categories']:
+                    item['tags'].append(TAGS.GITHUB.value)
+                else:
+                    item['tags'].append(TAGS.UNICODE.value)
                 records.append(item)
                 
     add_records(records)

@@ -41,6 +41,7 @@ def pull_bing_trending_images():
         for group in data:
             for item in group["tiles"]:
                 record = {
+                    "objectID": item["image"]["contentUrl"],
                     "type": TYPES.IMAGE.value,
                     "url": item["image"]["contentUrl"],
                     "alt": item["query"]["displayText"],
