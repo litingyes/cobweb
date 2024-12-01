@@ -18,14 +18,15 @@ def pull_search_wallpaper():
             "q": "wallpaper",
             "safeSearch": "Strict",
             "color": "ColorOnly",
-            "freshness": "Day",
+            "freshness": "Week",
             "aspect": "Wide",
             "imageType": "Photo",
             "license": "Public",
             "size": "Wallpaper",
         },
     )
-    data = r.json()["queryExpansions"]
+    # found count is invalid
+    data = r.json()["queryExpansions"][0:8]
     target_file = path.join(target_dir, getToday() + ".json")
     ensure_path_exists(target_file)
     with open(target_file, "w") as f:
