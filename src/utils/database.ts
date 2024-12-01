@@ -47,22 +47,22 @@ export const BING_DOMAIN = 'https://bing.com'
 export function connectDatabase() {
   return {
     dailyWallpaper: {
-      'en-US': globSync(`${databaseDir}/bing/daily-wallpaper/en-US/*.json`).map(path => ({
+      'en-US': globSync(`${databaseDir}/images/bing-daily-wallpaper/en-US/*.json`).map(path => ({
         date: basename(path, '.json'),
         data: destr<DAILY_WALLPAPER_ITEM[]>(readFileSync(path, 'utf-8')),
       })),
-      'zh-CN': globSync(`${databaseDir}/bing/daily-wallpaper/zh-CN/*.json`).map(path => ({
+      'zh-CN': globSync(`${databaseDir}/images/bing-daily-wallpaper/zh-CN/*.json`).map(path => ({
         date: basename(path, '.json'),
         data: destr<DAILY_WALLPAPER_ITEM[]>(readFileSync(path, 'utf-8')),
       })),
     },
-    searchWallpaper: globSync(`${databaseDir}/bing/search-wallpaper/*.json`).map(path => ({
+    searchWallpaper: globSync(`${databaseDir}/images/bing-search-wallpaper/*.json`).map(path => ({
       date: basename(path, '.json'),
       data: destr<SEARCH_WALLPAPER_ITEM[]>(readFileSync(path, 'utf-8')),
     })),
     trendingImages: {
-      'en-US': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/bing/trending-images/en-US.json`, 'utf-8')),
-      'zh-CN': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/bing/trending-images/zh-CN.json`, 'utf-8')),
+      'en-US': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/images/bing-trending-images/en-US.json`, 'utf-8')),
+      'zh-CN': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/images/bing-trending-images/zh-CN.json`, 'utf-8')),
     },
   }
 }

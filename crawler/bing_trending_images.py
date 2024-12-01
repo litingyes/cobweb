@@ -5,8 +5,8 @@ from algolia import TAGS, TYPES, add_records
 from shared import ensure_path_exists, update_readme, get_database_path, MKTs
 
 
-def pull_trending_images():
-    target_dir = path.join(get_database_path(), "bing", "trending-images")
+def pull_bing_trending_images():
+    target_dir = path.join(get_database_path(), "images", "bing-trending-images")
     key = environ.get("AZURE_SUBSCRIPTION_KEY")
     md_content = (
         "\n|Popular nature and landmark | Popular wallpaper |\n| :----: | :----: |\n"
@@ -55,4 +55,4 @@ def pull_trending_images():
 
 
 if __name__ == "__main__":
-    pull_trending_images()
+    pull_bing_trending_images()

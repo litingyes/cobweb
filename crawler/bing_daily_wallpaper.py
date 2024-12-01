@@ -12,8 +12,8 @@ from shared import (
 )
 
 
-def pull_daily_wallpaper():
-    target_dir = path.join(get_database_path(), "bing", "daily-wallpaper")
+def pull_bing_daily_wallpaper():
+    target_dir = path.join(get_database_path(), "images", "bing-daily-wallpaper")
     records = []
 
     for mkt in MKTs:
@@ -47,4 +47,4 @@ def pull_daily_wallpaper():
 
 
 if __name__ == "__main__":
-    pull_daily_wallpaper()
+    pull_bing_daily_wallpaper()

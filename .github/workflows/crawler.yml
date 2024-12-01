@@ -25,9 +25,8 @@ jobs:
       - run: poetry install
       - name: pull bing images
         run: |
-          poetry run python crawler/daily_wallpaper.py
-          poetry run python crawler/search_wallpaper.py
-          poetry run python crawler/trending_images.py
+          poetry run python crawler/bing_daily_wallpaper.py
+          poetry run python crawler/bing_trending_images.py
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -58,7 +57,7 @@ jobs:
           python-version: '3.11'
           cache: poetry
       - run: poetry install
-      - run: poetry run python crawler/search_wallpaper.py
+      - run: poetry run python crawler/bing_search_wallpaper.py
       - uses: pnpm/action-setup@v4
         with:
           version: 9

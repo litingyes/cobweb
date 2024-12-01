@@ -47,7 +47,7 @@ def pull_unicode_emoji():
 
     attach_github_emoji_info(list)
 
-    target_file_path = path.join(get_database_path(), "emoji", "unicode.json")
+    target_file_path = path.join(get_database_path(), "emojis", "unicode.json")
     ensure_path_exists(target_file_path)
     with open(target_file_path, "w") as f:
         f.write(dumps(list, ensure_ascii=False, indent=2))

@@ -23,7 +23,7 @@ Collect, store and distribute meaningful static data
 
 <!-- BING_SEARCH_WALLPAPER_START -->
 
-![Floral Bathroom](https://tse1.mm.bing.net/th?q=Floral+Bathroom+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1) Today: [Floral Bathroom](https://tse1.mm.bing.net/th?q=Floral+Bathroom+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1)
+![Shin Chan](https://tse1.mm.bing.net/th?q=Shin+Chan+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1) Today: [Shin Chan](https://tse1.mm.bing.net/th?q=Shin+Chan+Wallpaper&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=strict&t=1)
 
 <!-- BING_SEARCH_WALLPAPER_END -->
 

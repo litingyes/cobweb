@@ -5,8 +5,8 @@ from algolia import TAGS, TYPES, add_records
 from shared import ensure_path_exists, get_database_path, getToday, update_readme
 
 
-def pull_search_wallpaper():
-    target_dir = path.join(get_database_path(), "bing", "search-wallpaper")
+def pull_bing_search_wallpaper():
+    target_dir = path.join(get_database_path(), "images", "bing-search-wallpaper")
     key = environ.get("AZURE_SUBSCRIPTION_KEY")
 
     r = get(
@@ -49,4 +49,4 @@ def pull_search_wallpaper():
 
 
 if __name__ == "__main__":
-    pull_search_wallpaper()
+    pull_bing_search_wallpaper()
