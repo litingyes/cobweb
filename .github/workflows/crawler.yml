@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AZURE_SUBSCRIPTION_KEY: ${{secrets.AZURE_SUBSCRIPTION_KEY}}
+      ALGOLIA_APPLICATION_ID: ${{secrets.ALGOLIA_APPLICATION_ID}}
+      ALGOLIA_WRITE_API_KEY: ${{secrets.ALGOLIA_WRITE_API_KEY}}
     steps:
       - uses: actions/checkout@v4
       - run: pipx install poetry
