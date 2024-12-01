@@ -53,7 +53,7 @@ def reset_records():
     database_path = get_database_path()
     records = []
 
-    daily_wallpaper_dir = path.join(database_path, "bing", "daily-wallpaper")
+    daily_wallpaper_dir = path.join(database_path, "images", "bing-daily-wallpaper")
     for lang in [TAGS.EN_US.value, TAGS.ZN_CN.value]:
         for file in Path(path.join(daily_wallpaper_dir, lang)).rglob("*.json"):
             with open(file, "r") as f:
@@ -67,7 +67,7 @@ def reset_records():
                     }
                     records.append(record)
 
-    search_wallpaper_dir = path.join(database_path, "bing", "search-wallpaper")
+    search_wallpaper_dir = path.join(database_path, "images", "bing-search-wallpaper")
     for file in Path(search_wallpaper_dir).rglob("*.json"):
         with open(file, "r") as f:
             data = loads(f.read())
@@ -80,7 +80,7 @@ def reset_records():
                 }
                 records.append(record)
 
-    trending_images_dir = path.join(database_path, "bing", "trending-images")
+    trending_images_dir = path.join(database_path, "images", "bing-trending-images")
     for lang in [TAGS.EN_US.value, TAGS.ZN_CN.value]:
         with open(path.join(trending_images_dir, lang + ".json"), "r") as f:
             data = loads(f.read())
@@ -98,9 +98,18 @@ def reset_records():
                     }
                     records.append(record)
 
+    emojis_dir = path.join(database_path, "emojis")
+    for path in Path(emojis_dir).rglob('*.json'):
+        with open(path,'r') as f:
+            data = loads(f.read())
+            for item in data:
+                item['objectID'] = f"{TYPES.EMOJI.value}_{item['name']}"
+                records.append(item)
+                
     add_records(records)
     
 
 if __name__ == "__main__":
     reset_records()
     
+8
