@@ -2,7 +2,12 @@ from json import dumps
 from os import environ, path
 from requests import get
 from algolia import TAGS, TYPES, add_records
-from shared import ensure_path_exists, update_readme, get_database_path, MKTs
+from shared import (
+    ensure_path_exists,
+    update_images_section_in_readme,
+    get_database_path,
+    MKTs,
+)
 
 
 def pull_bing_trending_images():
@@ -24,18 +29,7 @@ def pull_bing_trending_images():
         with open(target_file, "w") as f:
             f.write(dumps(data, ensure_ascii=False, indent=2))
 
-        if mkt == "en-US":
-            for i in range(8):
-                nature_or_landmark = data[2]["tiles"][i]
-                nature_or_landmark_description = nature_or_landmark["query"][
-                    "displayText"
-                ]
-                nature_or_landmark_url = nature_or_landmark["image"]["thumbnailUrl"]
-                wallpaper = data[3]["tiles"][i]
-                wallpaper_description = wallpaper["query"]["displayText"]
-                wallpaper_url = wallpaper["image"]["thumbnailUrl"]
-                md_content += f"| [![{nature_or_landmark_description}]({nature_or_landmark_url}) {nature_or_landmark_description}]({nature_or_landmark_url}) | [![{wallpaper_description}]({wallpaper_url}) {wallpaper_description}]({wallpaper_url}) |\n"
-            update_readme("BING_TRENDING_IMAGES", md_content)
+        update_images_section_in_readme()
 
         records = []
         for group in data:

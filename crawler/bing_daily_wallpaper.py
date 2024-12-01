@@ -6,7 +6,7 @@ from shared import (
     ensure_path_exists,
     get_database_path,
     getToday,
-    update_readme,
+    update_images_section_in_readme,
     MKTs,
     BING_DOMAIN,
 )
@@ -27,13 +27,7 @@ def pull_bing_daily_wallpaper():
         with open(target_file, "w") as f:
             f.write(dumps(data, ensure_ascii=False, indent=2))
 
-        first_image = data[0]
-        url = BING_DOMAIN + first_image["url"]
-        uhd_url = BING_DOMAIN + first_image["urlbase"] + "_UHD.jpg"
-
-        if mkt == "en-US":
-            md_content = f"![{first_image['title']}]({url}) Today: [{first_image['title']}]({uhd_url})"
-            update_readme("BING_DAILY_WALLPAPER", md_content)
+        update_images_section_in_readme()
 
         for item in data:
             record = {

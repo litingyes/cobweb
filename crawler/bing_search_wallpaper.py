@@ -2,7 +2,12 @@ from json import dumps
 from os import environ, path
 from requests import get
 from algolia import TAGS, TYPES, add_records
-from shared import ensure_path_exists, get_database_path, getToday, update_readme
+from shared import (
+    ensure_path_exists,
+    get_database_path,
+    getToday,
+    update_images_section_in_readme,
+)
 
 
 def pull_bing_search_wallpaper():
@@ -32,9 +37,7 @@ def pull_bing_search_wallpaper():
     with open(target_file, "w") as f:
         f.write(dumps(data, ensure_ascii=False, indent=2))
 
-    first_image = data[0]
-    md_content = f"![{first_image['displayText']}]({first_image['thumbnail']['thumbnailUrl']}) Today: [{first_image['displayText']}]({first_image['thumbnail']['thumbnailUrl']})"
-    update_readme("BING_SEARCH_WALLPAPER", md_content)
+    update_images_section_in_readme()
 
     records = []
     for item in data:
