@@ -34,10 +34,10 @@ def pull_bing_daily_wallpaper():
         if mkt == "en-US":
             md_content = f"![{first_image['title']}]({url}) Today: [{first_image['title']}]({uhd_url})"
             update_readme("BING_DAILY_WALLPAPER", md_content)
-            
+
         for item in data:
             record = {
-                "objectID": item['urlbase'],
+                "objectID": item["urlbase"],
                 "type": TYPES.IMAGE.value,
                 "url": BING_DOMAIN + item["url"],
                 "alt": item["title"],

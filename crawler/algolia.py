@@ -14,7 +14,7 @@ api_key = environ.get("ALGOLIA_WRITE_API_KEY")
 
 class TYPES(Enum):
     IMAGE = "image"
-    EMOJI = 'emoji'
+    EMOJI = "emoji"
 
 
 class LANGS(Enum):
@@ -36,19 +36,18 @@ class TAGS(Enum):
     DAILY_WALLPAPER = "daily-wallpaper"
     SEARCH_WALLPAPER = "search-wallpaper"
     # emoji
-    UNICODE = 'unicode'
-    GITHUB = 'github'
-    
+    UNICODE = "unicode"
+    GITHUB = "github"
 
 
 def wrap_add_object(record):
     return {"action": "addObject", "body": record}
 
+
 def add_records(records):
     client = SearchClientSync(application_key, api_key)
     client.batch(INDEX_NAME, {"requests": list(map(wrap_add_object, records))})
     client.close()
-    
 
 
 def reset_records():
@@ -66,7 +65,7 @@ def reset_records():
                 data = loads(f.read())
                 for item in data:
                     record = {
-                        "objectID": item['urlbase'],
+                        "objectID": item["urlbase"],
                         "type": TYPES.IMAGE.value,
                         "url": BING_DOMAIN + item["url"],
                         "alt": item["title"],
@@ -84,7 +83,11 @@ def reset_records():
                     "type": TYPES.IMAGE.value,
                     "url": item["thumbnail"]["thumbnailUrl"],
                     "alt": item["displayText"],
-                    "tags": [TAGS.IMAGE.value, TAGS.EN_US.value, TAGS.SEARCH_WALLPAPER.value],
+                    "tags": [
+                        TAGS.IMAGE.value,
+                        TAGS.EN_US.value,
+                        TAGS.SEARCH_WALLPAPER.value,
+                    ],
                 }
                 records.append(record)
 
@@ -108,23 +111,23 @@ def reset_records():
                     records.append(record)
 
     emojis_dir = path.join(database_path, "emojis")
-    for file in Path(emojis_dir).rglob('*.json'):
-        with open(file,'r') as f:
+    for file in Path(emojis_dir).rglob("*.json"):
+        with open(file, "r") as f:
             data = loads(f.read())
             for item in data:
-                item['objectID'] = f"{TYPES.EMOJI.value}_{item['name']}"
-                item['type'] = TAGS.EMOJI.value
-                item['tags'] = [TAGS.EMOJI.value]
-                if TAGS.GITHUB in item['categories']:
-                    item['tags'].append(TAGS.GITHUB.value)
+                item["objectID"] = f"{TYPES.EMOJI.value}_{item['name']}"
+                item["type"] = TAGS.EMOJI.value
+                item["tags"] = [TAGS.EMOJI.value]
+                if TAGS.GITHUB in item["categories"]:
+                    item["tags"].append(TAGS.GITHUB.value)
                 else:
-                    item['tags'].append(TAGS.UNICODE.value)
+                    item["tags"].append(TAGS.UNICODE.value)
                 records.append(item)
-                
+
     add_records(records)
-    
+
 
 if __name__ == "__main__":
     reset_records()
-    
+
 8

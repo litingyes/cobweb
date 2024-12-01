@@ -35,7 +35,7 @@ def pull_bing_search_wallpaper():
     first_image = data[0]
     md_content = f"![{first_image['displayText']}]({first_image['thumbnail']['thumbnailUrl']}) Today: [{first_image['displayText']}]({first_image['thumbnail']['thumbnailUrl']})"
     update_readme("BING_SEARCH_WALLPAPER", md_content)
-    
+
     records = []
     for item in data:
         record = {

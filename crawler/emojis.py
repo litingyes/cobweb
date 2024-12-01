@@ -52,17 +52,16 @@ def pull_unicode_emoji():
     ensure_path_exists(target_file_path)
     with open(target_file_path, "w") as f:
         f.write(dumps(list, ensure_ascii=False, indent=2))
-    
-        
+
     records = []
     for item in list:
-        item['objectID'] = f"{TYPES.EMOJI.value}_{item['name']}"
-        item['type'] = TAGS.EMOJI.value
-        item['tags'] = [TAGS.EMOJI.value]
-        if TAGS.GITHUB in item['categories']:
-            item['tags'].append(TAGS.GITHUB.value)
+        item["objectID"] = f"{TYPES.EMOJI.value}_{item['name']}"
+        item["type"] = TAGS.EMOJI.value
+        item["tags"] = [TAGS.EMOJI.value]
+        if TAGS.GITHUB in item["categories"]:
+            item["tags"].append(TAGS.GITHUB.value)
         else:
-            item['tags'].append(TAGS.UNICODE.value)
+            item["tags"].append(TAGS.UNICODE.value)
         records.append(item)
     add_records(records)
 

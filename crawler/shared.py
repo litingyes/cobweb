@@ -3,9 +3,10 @@ from datetime import datetime, timezone
 from re import DOTALL, MULTILINE, compile, escape
 from typing import List
 
+
 # utils
-def is_equal_list(arr1:List, arr2:List):
-    if (not arr1 or not arr2):
+def is_equal_list(arr1: List, arr2: List):
+    if not arr1 or not arr2:
         return False
     if len(arr1) != len(arr2):
         return False
@@ -13,6 +14,7 @@ def is_equal_list(arr1:List, arr2:List):
         if item not in arr2:
             return False
     return True
+
 
 # file
 def get_database_path():

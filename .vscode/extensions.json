@@ -2,6 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "bradlc.vscode-tailwindcss",
-    "antfu.iconify"
+    "antfu.iconify",
+    "ms-python.black-formatter"
   ]
 }

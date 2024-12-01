@@ -36,7 +36,7 @@ def pull_bing_trending_images():
                 wallpaper_url = wallpaper["image"]["thumbnailUrl"]
                 md_content += f"| [![{nature_or_landmark_description}]({nature_or_landmark_url}) {nature_or_landmark_description}]({nature_or_landmark_url}) | [![{wallpaper_description}]({wallpaper_url}) {wallpaper_description}]({wallpaper_url}) |\n"
             update_readme("BING_TRENDING_IMAGES", md_content)
-        
+
         records = []
         for group in data:
             for item in group["tiles"]:
