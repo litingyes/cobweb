@@ -4,6 +4,7 @@ from os import path
 from re import split
 from typing import Dict, List
 from requests import get
+from algolia import TYPES, add_records
 from shared import ensure_path_exists, get_database_path, is_equal_list
 
 
@@ -51,6 +52,13 @@ def pull_unicode_emoji():
     ensure_path_exists(target_file_path)
     with open(target_file_path, "w") as f:
         f.write(dumps(list, ensure_ascii=False, indent=2))
+    
+        
+    records = []
+    for item in list:
+        item['objectID'] = f"{TYPES.EMOJI.value}_{item['name']}"
+        records.append(item)
+    add_records(records)
 
 
 def attach_github_emoji_info(list: List):
@@ -102,6 +110,7 @@ def attach_github_emoji_info(list: List):
                 {
                     "name": name.replace("_", ""),
                     "shortCodes": [f":{name}:"],
+                    "codePoints": [],
                     "categories": [
                         ADDON_MODULES.CUSTOM.value,
                         ADDON_MODULES.GITHUB.value,

@@ -14,6 +14,7 @@ api_key = environ.get("ALGOLIA_WRITE_API_KEY")
 
 class TYPES(Enum):
     IMAGE = "image"
+    EMOJI = 'emoji'
 
 
 class LANGS(Enum):
