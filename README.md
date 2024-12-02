@@ -28,6 +28,8 @@ Collect, store and distribute meaningful static data
 
 ### Emojis
 
+> [View all data](./database/emojis/)
+
 <!-- EMOJIS_START -->
 
 |        Category        |                                               Char                                               |              Name              |                       Code points                       |
