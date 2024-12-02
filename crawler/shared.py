@@ -127,7 +127,7 @@ def update_emojis_section_in_readme():
         if category in categories:
             continue
         if "github" in item["categories"]:
-            md_content += f'| github-custom | ![{item["name"]}]({item["url"]}) | {item["name"]} | --- |\n'
+            md_content += f'| github-custom | <img src="{item["url"]}" width="16" /> | {item["name"]} | --- |\n'
             categories.append("github")
         else:
             md_content += f'| {category} | {item["char"]} | {item["name"]} | {" ".join(item["codePoints"])} |\n'
