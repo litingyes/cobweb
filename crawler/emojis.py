@@ -5,7 +5,12 @@ from re import split
 from typing import Dict, List
 from requests import get
 from algolia import TAGS, TYPES, add_records
-from shared import ensure_path_exists, get_database_path, is_equal_list
+from shared import (
+    ensure_path_exists,
+    get_database_path,
+    is_equal_list,
+    update_emojis_section_in_readme,
+)
 
 
 class ADDON_MODULES(Enum):
@@ -87,7 +92,7 @@ def attach_github_emoji_info(list: List):
             if not emoji_in_unicode:
                 list.append(
                     {
-                        "name": name.replace("_", ""),
+                        "name": name,
                         "shortCodes": [f":{name}:"],
                         "codePoints": code_points,
                         "categories": [
@@ -100,11 +105,11 @@ def attach_github_emoji_info(list: List):
                 continue
 
             if "addons" not in emoji_in_unicode:
-                emoji_in_unicode["addon"] = []
-            emoji_in_unicode["addon"].append(
+                emoji_in_unicode["addons"] = []
+            emoji_in_unicode["addons"].append(
                 {
                     "module": ADDON_MODULES.GITHUB.value,
-                    "name": name.replace("_", ""),
+                    "name": name,
                     "shortCodes": [f":{name}:"],
                     "url": url,
                 }
@@ -113,7 +118,7 @@ def attach_github_emoji_info(list: List):
         except ValueError:
             list.append(
                 {
-                    "name": name.replace("_", ""),
+                    "name": name,
                     "shortCodes": [f":{name}:"],
                     "codePoints": [],
                     "categories": [
@@ -127,3 +132,4 @@ def attach_github_emoji_info(list: List):
 
 if __name__ == "__main__":
     pull_unicode_emoji()
+    update_emojis_section_in_readme()

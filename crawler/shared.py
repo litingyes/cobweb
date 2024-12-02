@@ -116,6 +116,25 @@ def update_images_section_in_readme():
     update_readme("IMAGES", md_content)
 
 
+def update_emojis_section_in_readme():
+    unicode_path = path.join(get_database_path(), "emojis", "unicode.json")
+    with open(unicode_path, "r") as f:
+        data = loads(f.read())
+    md_content = "| Category | Char | Name | Code points |\n| :----: | :----: | :----: | :----: |\n"
+    categories = []
+    for item in data:
+        category = item["categories"][-1]
+        if category in categories:
+            continue
+        if "github" in item["categories"]:
+            md_content += f'| github-custom | ![{item["name"]}]({item["url"]}) | {item["name"]} | --- |\n'
+            categories.append("github")
+        else:
+            md_content += f'| {category} | {item["char"]} | {item["name"]} | {" ".join(item["codePoints"])} |\n'
+            categories.append(category)
+    update_readme("EMOJIS", md_content)
+
+
 # bing
 
 BING_DOMAIN = "https://bing.com"
