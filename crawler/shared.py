@@ -99,7 +99,7 @@ def update_images_section_in_readme():
     for i in range(8):
         daily_wallpaper_image = bing_daily_wallpaper_data[i]
         daily_wallpaper_image_url = (
-            BING_DOMAIN + daily_wallpaper_image["urlbase"] + "_UHD.jpg"
+            BING_DOMAIN + daily_wallpaper_image["urlbase"] + "_UHD.jpg&w=474"
         )
         daily_wallpaper_image_alt = daily_wallpaper_image["title"]
 
