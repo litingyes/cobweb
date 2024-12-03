@@ -41,7 +41,7 @@ jobs:
           git config --global user.name "litingyes"
           git add .
           git commit -m "chore(github-actions): update daily-wallpaper and trending-images at $(date +'%Y-%m-%d')"
-          git pull origin main
+          git pull origin main -r
           git push origin main
 
   bing-search-images:
@@ -74,7 +74,7 @@ jobs:
           git config --global user.name "litingyes"
           git add .
           git commit -m "chore(github-actions): update bing search images at $(date +'%Y-%m-%d')"
-          git pull origin main
+          git pull origin main -r
           git push origin main
 
   emojis:
@@ -106,5 +106,5 @@ jobs:
           git config --global user.name "litingyes"
           git add .
           git commit -m "chore(github-actions): update emojis at $(date +'%Y-%m-%d')"
-          git pull origin main
+          git pull origin main -r
           git push origin main
