@@ -42,6 +42,22 @@ interface TRENDING_IMAGES_ITEM extends JsonObject {
   }>
 }
 
+export interface UNICODE_EMOJI extends JsonObject {
+  char: string | null
+  name: string
+  shortCodes: string[]
+  codePoints: string[]
+  categories: string[]
+  status: 'fully-qualified' | 'minimally-qualified' | 'unqualified' | 'component' | null
+  addons: Array<{
+    module: 'github'
+    name: string
+    shortCodes: string[]
+    url: string
+  }> | null
+  url: string | null
+}
+
 export const BING_DOMAIN = 'https://bing.com'
 
 export function connectDatabase() {
@@ -63,6 +79,9 @@ export function connectDatabase() {
     trendingImages: {
       'en-US': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/images/bing-trending-images/en-US.json`, 'utf-8')),
       'zh-CN': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/images/bing-trending-images/zh-CN.json`, 'utf-8')),
+    },
+    emojis: {
+      unicode: destr<UNICODE_EMOJI[]>(readFileSync(`${databaseDir}/emojis/unicode.json`, 'utf-8')),
     },
   }
 }

@@ -11,6 +11,9 @@ export default function Header() {
         </div>
       </Link>
       <div className="flex items-center gap-1">
+        <Link href="/emojis" isBlock>
+          Emojis
+        </Link>
         <Link href="/images" isBlock>
           Images
         </Link>
