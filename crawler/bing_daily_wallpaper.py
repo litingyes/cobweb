@@ -5,7 +5,7 @@ from algolia import TAGS, TYPES, add_records
 from shared import (
     ensure_path_exists,
     get_database_path,
-    getToday,
+    get_today,
     update_images_section_in_readme,
     MKTs,
     BING_DOMAIN,
@@ -22,7 +22,7 @@ def pull_bing_daily_wallpaper():
             {"format": "js", "idx": 0, "n": 8, "mkt": mkt},
         )
         data = r.json()["images"]
-        target_file = path.join(target_dir, mkt, getToday() + ".json")
+        target_file = path.join(target_dir, mkt, get_today() + ".json")
         ensure_path_exists(target_file)
         with open(target_file, "w") as f:
             f.write(dumps(data, ensure_ascii=False, indent=2))

@@ -36,7 +36,7 @@ def ensure_path_exists(_path, is_dir=False):
 
 
 # time
-def getToday():
+def get_today():
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
@@ -67,11 +67,11 @@ def update_images_section_in_readme():
         "images",
         "bing-daily-wallpaper",
         "en-US",
-        getToday() + ".json",
+        get_today() + ".json",
     )
     if not path.exists(bing_daily_wallpaper_path):
         bing_daily_wallpaper_path = bing_daily_wallpaper_path.replace(
-            getToday(), get_yesterday()
+            get_today(), get_yesterday()
         )
     with open(bing_daily_wallpaper_path, "r") as f:
         bing_daily_wallpaper_data = loads(f.read())
@@ -80,11 +80,11 @@ def update_images_section_in_readme():
         get_database_path(),
         "images",
         "bing-search-wallpaper",
-        getToday() + ".json",
+        get_today() + ".json",
     )
     if not path.exists(bing_search_wallpaper_path):
         bing_search_wallpaper_path = bing_search_wallpaper_path.replace(
-            getToday(), get_yesterday()
+            get_today(), get_yesterday()
         )
     with open(bing_search_wallpaper_path, "r") as f:
         bing_search_wallpaper_data = loads(f.read())

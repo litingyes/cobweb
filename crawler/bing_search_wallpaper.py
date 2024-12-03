@@ -5,7 +5,7 @@ from algolia import TAGS, TYPES, add_records
 from shared import (
     ensure_path_exists,
     get_database_path,
-    getToday,
+    get_today,
     update_images_section_in_readme,
 )
 
@@ -32,7 +32,7 @@ def pull_bing_search_wallpaper():
     )
     # found count is invalid
     data = r.json()["queryExpansions"][0:8]
-    target_file = path.join(target_dir, getToday() + ".json")
+    target_file = path.join(target_dir, get_today() + ".json")
     ensure_path_exists(target_file)
     with open(target_file, "w") as f:
         f.write(dumps(data, ensure_ascii=False, indent=2))
