@@ -1,7 +1,7 @@
-from json import dumps
+from json import dumps, loads
 from os import environ, path
 from requests import get
-from algolia import TAGS, TYPES, add_records
+from algolia import TAGS, TYPES, add_records, delete_records
 from shared import (
     ensure_path_exists,
     update_images_section_in_readme,
@@ -23,6 +23,24 @@ def pull_bing_trending_images():
         data = r.json()["categories"]
         target_file = path.join(target_dir, mkt + ".json")
         ensure_path_exists(target_file)
+        with open(target_file, "r") as f:
+            data = loads(f.read())
+            records = []
+            for group in data:
+                for item in group["tiles"]:
+                    record = {
+                        "objectID": item["image"]["contentUrl"],
+                        "type": TYPES.IMAGE.value,
+                        "url": item["image"]["contentUrl"],
+                        "alt": item["query"]["displayText"],
+                        "tags": [
+                            TAGS.IMAGE.value,
+                            mkt,
+                            TAGS.SEARCH_WALLPAPER.value,
+                        ],
+                    }
+                records.append(record)
+            delete_records(records)
         with open(target_file, "w") as f:
             f.write(dumps(data, ensure_ascii=False, indent=2))
 
