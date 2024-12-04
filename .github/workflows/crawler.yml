@@ -27,6 +27,7 @@ jobs:
         run: |
           poetry run python crawler/bing_daily_wallpaper.py
           poetry run python crawler/bing_trending_images.py
+      - run: git diff --exit-code > /dev/null && exit 0
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -60,6 +61,7 @@ jobs:
           cache: poetry
       - run: poetry install
       - run: poetry run python crawler/bing_search_wallpaper.py
+      - run: git diff --exit-code > /dev/null && exit 0
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -92,6 +94,7 @@ jobs:
           cache: poetry
       - run: poetry install
       - run: poetry run python crawler/emojis.py
+      - run: git diff --exit-code > /dev/null && exit 0
       - uses: pnpm/action-setup@v4
         with:
           version: 9
