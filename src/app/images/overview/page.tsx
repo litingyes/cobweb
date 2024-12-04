@@ -79,23 +79,21 @@ export default async function ImagesOverview({ searchParams }: ImagesOverviewPro
             // eslint-disable-next-line react/no-useless-fragment
             <>
               {
-                ...db.searchWallpaper.map(({ date, data }) => {
+                ...db.searchWallpaper['en-US'].map((item) => {
                   if (tags.find(tag => LANGS.includes(tag)) && !tags.includes('en-US')) {
                     return []
                   }
 
-                  return data.map((item) => {
-                    return (
-                      <ImageCardWithPreview
-                        key={date + item.thumbnail.thumbnailUrl}
-                        url={item.thumbnail.thumbnailUrl}
-                        alt={item.displayText}
-                        width={960}
-                        height={540}
-                        lang="en-US"
-                      />
-                    )
-                  })
+                  return (
+                    <ImageCardWithPreview
+                      key={`searchWallpaper_${item.thumbnailUrl}`}
+                      url={item.thumbnailUrl}
+                      alt={item.title}
+                      width={960}
+                      height={540}
+                      lang="en-US"
+                    />
+                  )
                 })
               }
             </>

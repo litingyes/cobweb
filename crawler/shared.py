@@ -80,12 +80,8 @@ def update_images_section_in_readme():
         get_database_path(),
         "images",
         "bing-search-wallpaper",
-        get_today() + ".json",
+        "en-US.json",
     )
-    if not path.exists(bing_search_wallpaper_path):
-        bing_search_wallpaper_path = bing_search_wallpaper_path.replace(
-            get_today(), get_yesterday()
-        )
     with open(bing_search_wallpaper_path, "r") as f:
         bing_search_wallpaper_data = loads(f.read())
 
@@ -104,8 +100,8 @@ def update_images_section_in_readme():
         daily_wallpaper_image_alt = daily_wallpaper_image["title"]
 
         search_wallpaper_image = bing_search_wallpaper_data[i]
-        search_wallpaper_image_url = search_wallpaper_image["thumbnail"]["thumbnailUrl"]
-        search_wallpaper_image_alt = search_wallpaper_image["displayText"]
+        search_wallpaper_image_url = search_wallpaper_image["thumbnailUrl"]
+        search_wallpaper_image_alt = search_wallpaper_image["title"]
 
         trending_images_image = bing_trending_images_data[3]["tiles"][i]
         trending_images_image_url = trending_images_image["image"]["thumbnailUrl"]

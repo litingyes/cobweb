@@ -13,9 +13,6 @@ from shared import (
 def pull_bing_trending_images():
     target_dir = path.join(get_database_path(), "images", "bing-trending-images")
     key = environ.get("AZURE_SUBSCRIPTION_KEY")
-    md_content = (
-        "\n|Popular nature and landmark | Popular wallpaper |\n| :----: | :----: |\n"
-    )
 
     for mkt in MKTs:
         r = get(

@@ -17,10 +17,8 @@ interface DAILY_WALLPAPER_ITEM extends JsonObject {
 }
 
 interface SEARCH_WALLPAPER_ITEM extends JsonObject {
-  displayText: string
-  thumbnail: {
-    thumbnailUrl: string
-  }
+  title: string
+  thumbnailUrl: string
 }
 
 interface TRENDING_IMAGES_ITEM extends JsonObject {
@@ -72,10 +70,9 @@ export function connectDatabase() {
         data: destr<DAILY_WALLPAPER_ITEM[]>(readFileSync(path, 'utf-8')),
       })),
     },
-    searchWallpaper: globSync(`${databaseDir}/images/bing-search-wallpaper/*.json`).map(path => ({
-      date: basename(path, '.json'),
-      data: destr<SEARCH_WALLPAPER_ITEM[]>(readFileSync(path, 'utf-8')),
-    })),
+    searchWallpaper: {
+      'en-US': destr<SEARCH_WALLPAPER_ITEM[]>(readFileSync(`${databaseDir}/images/bing-search-wallpaper/en-US.json`, 'utf-8')),
+    },
     trendingImages: {
       'en-US': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/images/bing-trending-images/en-US.json`, 'utf-8')),
       'zh-CN': destr<TRENDING_IMAGES_ITEM[]>(readFileSync(`${databaseDir}/images/bing-trending-images/zh-CN.json`, 'utf-8')),

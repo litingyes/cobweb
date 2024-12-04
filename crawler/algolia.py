@@ -50,6 +50,16 @@ def add_records(records):
     client.close()
 
 
+def wrap_delete_object(record):
+    return {"action": "deleteObject", "body": record}
+
+
+def delete_records(records):
+    client = SearchClientSync(application_key, api_key)
+    client.batch(INDEX_NAME, {"requests": list(map(wrap_delete_object, records))})
+    client.close()
+
+
 def reset_records():
     client = SearchClientSync(application_key, api_key)
     client.clear_objects(INDEX_NAME)
