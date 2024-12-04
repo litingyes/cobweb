@@ -89,10 +89,10 @@ def reset_records():
             data = loads(f.read())
             for item in data:
                 record = {
-                    "objectID": item["thumbnail"]["thumbnailUrl"],
+                    "objectID": item["thumbnailUrl"],
                     "type": TYPES.IMAGE.value,
-                    "url": item["thumbnail"]["thumbnailUrl"],
-                    "alt": item["displayText"],
+                    "url": item["thumbnailUrl"],
+                    "alt": item["title"],
                     "tags": [
                         TAGS.IMAGE.value,
                         TAGS.EN_US.value,
@@ -139,5 +139,3 @@ def reset_records():
 
 if __name__ == "__main__":
     reset_records()
-
-8
