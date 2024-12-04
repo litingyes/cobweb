@@ -1,5 +1,6 @@
 import type { UNICODE_EMOJI } from '@/utils/database'
 import OverviewEmoji from '@/components/Emojis/OverviewEmoji'
+import OverviewInit from '@/components/Emojis/OverviewInit'
 import { db } from '@/utils/database'
 import Link from 'next/link'
 import { useMemo } from 'react'
@@ -97,6 +98,7 @@ export default function EmojisOverview() {
 
   return (
     <div>
+      <OverviewInit />
       {emojis}
     </div>
   )
