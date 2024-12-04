@@ -9,6 +9,7 @@ on:
 
 jobs:
   images:
+    if: github.event.schedule == '0 8 * * *'
     needs: []
     name: update-images
     runs-on: ubuntu-latest
@@ -54,6 +55,7 @@ jobs:
           git push origin main
 
   bing-search-images:
+    if: github.event.schedule == '0 0 * * 0'
     name: update-bing-search-images
     runs-on: ubuntu-latest
     env:
@@ -95,6 +97,7 @@ jobs:
           git push origin main
 
   emojis:
+    if: github.event.schedule == '0 0 1 * *'
     name: update-emojis
     runs-on: ubuntu-latest
     env:
