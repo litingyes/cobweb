@@ -20,6 +20,11 @@ def pull_bing_trending_images():
             headers={"Ocp-Apim-Subscription-Key": key},
             params={"safeSearch": "Strict", "count": 8, "mkt": mkt},
         )
+
+        data = r.json()
+        if "categories" not in data:
+            return
+
         data = r.json()["categories"]
         target_file = path.join(target_dir, mkt + ".json")
         ensure_path_exists(target_file)
